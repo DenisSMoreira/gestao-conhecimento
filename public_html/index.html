@@ -1,0 +1,188 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Mapa de conhecimento">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Logic Mapa Conhecimento</title>
+
+        <!-- Page styles -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+            .demo-card-wide.mdl-card {
+                width: 512px;
+            }
+            .demo-card-wide > .mdl-card__title {
+                color: #fff;
+                height: 100;
+                background: url('../assets/demos/welcome_card.jpg') center / cover;
+            }
+            .demo-card-wide > .mdl-card__menu {
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+            <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+                <div class="mdl-layout__header-row">
+                    <span class="android-title mdl-layout-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="200px" height="60px" viewBox="0 0 330 60" enable-background="new 0 0 330 60" xml:space="preserve" class="svg white img-responsive aligncenter replaced-svg">
+                        <g>
+                        <rect x="258.495" y="5.757" fill="#333E48" width="7.277" height="49.12"></rect>
+                        <path fill="#333E48" d="M298.542,13.035h29.084V5.758h-29.084c-13.305,0-24.128,11.231-24.128,24.56   c0,13.329,10.823,24.56,24.128,24.56h29.084v-7.276h-29.084c-9.539,0-16.928-8.722-16.928-18.193   C281.614,19.938,289.003,13.035,298.542,13.035"></path>
+                        <path fill="#333E48" d="M162.916,5.757h-12.598c-13.305,0-24.128,11.231-24.128,24.56s10.823,24.56,24.128,24.56h12.598   c13.304,0,24.128-11.23,24.128-24.56S176.22,5.757,162.916,5.757 M162.916,47.6h-5.732h-6.866c-9.539,0-16.971-7.812-16.971-17.282   c0-9.47,7.432-17.283,16.971-17.283h12.598c9.539,0,16.973,7.813,16.973,17.283C179.889,39.788,172.454,47.6,162.916,47.6"></path>
+                        <path fill="#333E48" d="M194.385,30.317c0,13.329,10.824,24.56,24.129,24.56h21.788h7.277V47.6V33.046v-3.638v-3.639h-27.288v7.277   h20.011V47.6h-21.788c-9.539,0-16.739-8.162-16.739-17.631c0-9.471,7.2-16.934,16.739-16.934h29.065V5.757h-29.065   C205.209,5.757,194.385,16.988,194.385,30.317"></path>
+                        <path fill="#333E48" d="M100.231,47.583v-0.022c-0.174,0.008-0.343,0.039-0.519,0.039c-5.716,0-10.394-4.671-10.406-10.385h-0.001   v-0.021V15.931V8.647V5.758h-7.277v16.6v15.919c0,9.13,7.471,16.6,16.601,16.6h23.423v-7.294h-9.699H100.231z"></path>
+                        <path fill="#0047BA" d="M29.681,22.939h30.945V4H28.652C13.956,4,2,16.011,2,30.774c0,14.763,11.956,26.972,26.652,26.972h31.974   v-6.427H28.652c-10.977,0-20.25-9.103-20.25-20.278c0-11.174,9.273-20.615,20.25-20.615h25.577v6.065H29.681   c-8.165,0-14.808,7.055-14.808,15.283c0,7.978,6.366,13.993,14.808,13.993h30.945V27.549H28.522v6.437h25.707v5.355H29.681   c-4.714,0-8.406-3.528-8.406-8.032S24.967,22.939,29.681,22.939"></path>
+                        </g>
+                        </svg>
+                    </span>
+                    <!-- Add spacer, to align navigation to the right in desktop -->
+                    <div class="android-header-spacer mdl-layout-spacer"></div>
+                    <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="search-field">
+                        </div>
+                    </div>
+                    <!-- Navigation -->
+                    <div class="android-navigation-container">
+                        <nav class="android-navigation mdl-navigation">
+                            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index3.html">SEU PERFIL</a>
+                            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">TIMES</a>
+                            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">MAPA DE CONHECIMENTO</a>
+                        </nav>
+                    </div>
+                    <span class="android-mobile-title mdl-layout-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="200px" height="60px" viewBox="0 0 330 60" enable-background="new 0 0 330 60" xml:space="preserve" class="svg white img-responsive aligncenter replaced-svg">
+
+                        <g>
+                        <rect x="258.495" y="5.757" fill="#333E48" width="7.277" height="49.12"></rect>
+                        <path fill="#333E48" d="M298.542,13.035h29.084V5.758h-29.084c-13.305,0-24.128,11.231-24.128,24.56   c0,13.329,10.823,24.56,24.128,24.56h29.084v-7.276h-29.084c-9.539,0-16.928-8.722-16.928-18.193   C281.614,19.938,289.003,13.035,298.542,13.035"></path>
+                        <path fill="#333E48" d="M162.916,5.757h-12.598c-13.305,0-24.128,11.231-24.128,24.56s10.823,24.56,24.128,24.56h12.598   c13.304,0,24.128-11.23,24.128-24.56S176.22,5.757,162.916,5.757 M162.916,47.6h-5.732h-6.866c-9.539,0-16.971-7.812-16.971-17.282   c0-9.47,7.432-17.283,16.971-17.283h12.598c9.539,0,16.973,7.813,16.973,17.283C179.889,39.788,172.454,47.6,162.916,47.6"></path>
+                        <path fill="#333E48" d="M194.385,30.317c0,13.329,10.824,24.56,24.129,24.56h21.788h7.277V47.6V33.046v-3.638v-3.639h-27.288v7.277   h20.011V47.6h-21.788c-9.539,0-16.739-8.162-16.739-17.631c0-9.471,7.2-16.934,16.739-16.934h29.065V5.757h-29.065   C205.209,5.757,194.385,16.988,194.385,30.317"></path>
+                        <path fill="#333E48" d="M100.231,47.583v-0.022c-0.174,0.008-0.343,0.039-0.519,0.039c-5.716,0-10.394-4.671-10.406-10.385h-0.001   v-0.021V15.931V8.647V5.758h-7.277v16.6v15.919c0,9.13,7.471,16.6,16.601,16.6h23.423v-7.294h-9.699H100.231z"></path>
+                        <path fill="#0047BA" d="M29.681,22.939h30.945V4H28.652C13.956,4,2,16.011,2,30.774c0,14.763,11.956,26.972,26.652,26.972h31.974   v-6.427H28.652c-10.977,0-20.25-9.103-20.25-20.278c0-11.174,9.273-20.615,20.25-20.615h25.577v6.065H29.681   c-8.165,0-14.808,7.055-14.808,15.283c0,7.978,6.366,13.993,14.808,13.993h30.945V27.549H28.522v6.437h25.707v5.355H29.681   c-4.714,0-8.406-3.528-8.406-8.032S24.967,22.939,29.681,22.939"></path>
+                        </g>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <div class="android-drawer mdl-layout__drawer">
+                <span class="mdl-layout-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="350px" height="60px" viewBox="0 0 330 60" enable-background="new 0 0 330 60" xml:space="preserve" class="svg white img-responsive aligncenter replaced-svg">
+                    <g>
+                    <path fill="#ffffff" d="M29.681,22.939h30.945V4H28.652C13.956,4,2,16.011,2,30.774c0,14.763,11.956,26.972,26.652,26.972h31.974   v-6.427H28.652c-10.977,0-20.25-9.103-20.25-20.278c0-11.174,9.273-20.615,20.25-20.615h25.577v6.065H29.681   c-8.165,0-14.808,7.055-14.808,15.283c0,7.978,6.366,13.993,14.808,13.993h30.945V27.549H28.522v6.437h25.707v5.355H29.681   c-4.714,0-8.406-3.528-8.406-8.032S24.967,22.939,29.681,22.939"></path>
+                    </g>
+                    </svg>
+                    <!--<img class="android-logo-image" src="images/android-logo-white.png">-->
+                </span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">PERFIL</a>
+                    <a class="mdl-navigation__link" href="">TIMES</a>
+                    <a class="mdl-navigation__link" href="">MAPA DE CONHECIMENTO</a>
+                </nav>
+            </div>
+
+            <div class="android-content mdl-layout__content" >
+                <a name="top"></a>
+                <div class="android-be-together-section mdl-typography--text-center"  >
+                    <div class="logo-font android-slogan">O mapa do conhecimento é um guia!</div>
+                    <div class="logo-font android-sub-slogan">Localize os detentores de conhecimento e os guie para uma nova jornada.</div>
+                    <div class="logo-font android-create-character">
+                        <a href="">   
+                            <i class="material-icons md-48" >screen_share</i> 
+                            <br>
+                            Vamos lá!
+                        </a>
+                    </div>
+                </div>
+                <!--</div>-->
+                <div class="android-screen-section mdl-typography--text-center" >
+                    <div class="android-wear-section" >
+                        <div class="android-wear-band">
+                            <div class="android-wear-band-text">
+                                <div class="mdl-typography--display-2 mdl-typography--font-thin">Inspiração vem dos outros. Motivação vem de dentro de nós.</div>
+                                <p class="mdl-typography--headline mdl-typography--font-thin">
+                                    Mantenha seu mapa de conhecimento atualizado e seja a inspiração de um novo recurso e motive-se em ser o melhor.
+                                </p>
+                                <p>
+                                    <a class="mdl-typography--font-regular mdl-typography--text-uppercase android-alt-link" href="">
+                                        Atualizar mapa de conhecimento<i class="material-icons">chevron_right</i>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="android-footer mdl-mega-footer">
+
+                        <div class="mdl-mega-footer--middle-section">
+                            <p class="mdl-typography--font-light">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="120px" height="60px" viewBox="0 0 330 60" enable-background="new 0 0 330 60" xml:space="preserve" class="svg white img-responsive aligncenter replaced-svg">
+                                <g>
+                                <rect x="258.495" y="5.757" fill="#333E48" width="7.277" height="49.12"></rect>
+                                <path fill="#333E48" d="M298.542,13.035h29.084V5.758h-29.084c-13.305,0-24.128,11.231-24.128,24.56   c0,13.329,10.823,24.56,24.128,24.56h29.084v-7.276h-29.084c-9.539,0-16.928-8.722-16.928-18.193   C281.614,19.938,289.003,13.035,298.542,13.035"></path>
+                                <path fill="#333E48" d="M162.916,5.757h-12.598c-13.305,0-24.128,11.231-24.128,24.56s10.823,24.56,24.128,24.56h12.598   c13.304,0,24.128-11.23,24.128-24.56S176.22,5.757,162.916,5.757 M162.916,47.6h-5.732h-6.866c-9.539,0-16.971-7.812-16.971-17.282   c0-9.47,7.432-17.283,16.971-17.283h12.598c9.539,0,16.973,7.813,16.973,17.283C179.889,39.788,172.454,47.6,162.916,47.6"></path>
+                                <path fill="#333E48" d="M194.385,30.317c0,13.329,10.824,24.56,24.129,24.56h21.788h7.277V47.6V33.046v-3.638v-3.639h-27.288v7.277   h20.011V47.6h-21.788c-9.539,0-16.739-8.162-16.739-17.631c0-9.471,7.2-16.934,16.739-16.934h29.065V5.757h-29.065   C205.209,5.757,194.385,16.988,194.385,30.317"></path>
+                                <path fill="#333E48" d="M100.231,47.583v-0.022c-0.174,0.008-0.343,0.039-0.519,0.039c-5.716,0-10.394-4.671-10.406-10.385h-0.001   v-0.021V15.931V8.647V5.758h-7.277v16.6v15.919c0,9.13,7.471,16.6,16.601,16.6h23.423v-7.294h-9.699H100.231z"></path>
+                                <path fill="#0047BA" d="M29.681,22.939h30.945V4H28.652C13.956,4,2,16.011,2,30.774c0,14.763,11.956,26.972,26.652,26.972h31.974   v-6.427H28.652c-10.977,0-20.25-9.103-20.25-20.278c0-11.174,9.273-20.615,20.25-20.615h25.577v6.065H29.681   c-8.165,0-14.808,7.055-14.808,15.283c0,7.978,6.366,13.993,14.808,13.993h30.945V27.549H28.522v6.437h25.707v5.355H29.681   c-4.714,0-8.406-3.528-8.406-8.032S24.967,22.939,29.681,22.939"></path>
+                                </g>
+                                </svg>
+                            </p>
+                            <p class="mdl-typography--font-light">"Todos os seus sonhos podem se tornar realidade se você tem coragem para persegui-los".</p>
+                            Copyright © 2016 All right reserved
+                        </div>
+
+                        <div class="mdl-mega-footer--bottom-section">
+                            <a class="android-link mdl-typography--font-light" href="http://www.logicsp.com.br/">Site oficial</a>
+                            <a class="android-link mdl-typography--font-light" href="http://www.logicsp.com.br/blog/">Blog</a>
+                            <a class="android-link mdl-typography--font-light" href="http://www.logicsp.com.br/contato/">contato</a>
+                            <a class="android-link mdl-typography--font-light" href="http://www.logicsp.com.br/institucional/">Institucional</a>
+                            <a class="android-link mdl-typography--font-light" href="">Política de Privacidade</a>
+                        </div>
+
+                    </footer>
+                </div>
+                <div class="mdl-layout__obfuscator"></div>
+            </div>
+        </div>
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </body>
+</html>
