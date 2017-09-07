@@ -1,8 +1,21 @@
 {
-    "name": "gestao-conhecimento",
-    "version": "1.0.0",
-    "keywords": ["util", "functional", "server", "client", "browser"],
-    "author": "denis",
-    "contributors": [],
-    "dependencies": {}
+  "name": "gestao-conhecimento",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "denis",
+  "contributors": [],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "sortablejs": "^1.4.2",
+    "vue": "^2.0.0",
+    "vue-sortable": "^0.1.3"
+  }
 }
