@@ -1,12 +1,15 @@
 {
-    "name": "gestao-conhecimento",
-    "version": "1.0.0",
-    "main": "path/to/main.css",
-    "ignore": [
-        ".jshintrc", "**/*.txt"
-    ],
-    "dependencies": {
-    },
-    "devDependencies": {
-    }
+  "name": "gestao-conhecimento",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "ng-sortable": "^1.3.8",
+    "angular-resource": "^1.6.6",
+    "angular-ui-router": "0.4.2"
+  },
+  "devDependencies": {}
 }
