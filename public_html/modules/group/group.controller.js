@@ -1,21 +1,61 @@
 'use strict';
-angular.module('group').controller('GroupController', ['$scope', function ($scope) {
-        $scope.todos = [
-            {text: 'learn Sortable', done: true},
-            {text: 'use ng-sortable', done: false},
-            {text: 'Enjoy', done: false}
-        ];
+angular.module('group').controller('GroupController', function ($scope) {
 
-        $scope.remaining = function () {
-            var count = 0;
-            angular.forEach($scope.todos, function (todo) {
-                count += todo.done ? 0 : 1;
-            });
-            return count;
-        };
+    $scope.teams = [
+        {
+            name: 'team 1',
+            users: [
+                {
+                    name: 'Denis',
+                    img: 'images/face-01.jpg'
+                },
+                {
+                    name: 'Cesar',
+                    img: 'images/face-02.jpg'
+                },
+                {
+                    name: 'Treinee',
+                    img: 'images/face-03.jpg'
+                }
+            ]
+        },
+        {
+            name: 'team 2',
+            users: [
+                {
+                    name: 'asd',
+                    img: 'images/face-03.jpg'
+                },
+                {
+                    name: 'asddfd',
+                    img: 'images/face-04.jpg'
+                },
+                {
+                    name: '3434',
+                    img: 'images/face-05.jpg'
+                }
+            ]
+        }
+    ];
 
-        $scope.sortableConfig = {group: 'todo', animation: 150};
-        'Start End Add Update Remove Sort'.split(' ').forEach(function (name) {
-            $scope.sortableConfig['on' + name] = console.log.bind(console, name);
-        });
-    }]);
+    $scope.userss = [{
+            name: 'asd',
+            img: 'images/face-03.jpg'
+        },
+        {
+            name: 'asddfd',
+            img: 'images/face-04.jpg'
+        },
+        {
+            name: '3434',
+            img: 'images/face-05.jpg'
+        }];
+
+    $scope.sortableOptions = {
+        allowDuplicates: true
+    };
+    $scope.sortableCloneOptions = {
+        clone: true
+    };
+
+});
