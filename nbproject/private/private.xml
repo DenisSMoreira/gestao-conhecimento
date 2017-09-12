@@ -17,16 +17,6 @@
             <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/index.html</file>
             <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.module.js</file>
         </group>
-        <group name="monitor">
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/js/app.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/js/TodoControllerNext.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.controller.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.module.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/profile/profile.controller.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/bower_components/ng-sortable/dist/ng-sortable.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.view.html</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/js/Sortable.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/index.html</file>
-        </group>
+        <group name="monitor"/>
     </open-files>
 </project-private>
