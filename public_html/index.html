@@ -20,6 +20,9 @@
 
         <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
 
+        <!--<script src="bower_components/chart.js/Chart.min.js"></script>-->
+        <script src="bower_components/chart.js/dist/Chart.js"></script>
+        <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 
         <script src="js/app.js"></script>
 
@@ -78,45 +81,40 @@
             }
         </style>
     </head>
-    <body layout="row" ng-controller="PrincipalController">
+    <body layout="row" ng-controller="PrincipalController" >
     <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <md-toolbar class="md-tall md-hue-2">
             <span flex></span>
             <div layout="column" class="md-toolbar-tools-bottom inset">
-                <user-avatar></user-avatar>
-                <span></span>
-                <div>Firstname Lastname</div>
-                <div>email@domainname.com</div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" height="160px" viewBox="0 0 100 60" enable-background="new 0 0 100 60" xml:space="preserve" >
+                <g>
+                <path fill="#ffffff" d="M29.681,22.939h30.945V4H28.652C13.956,4,2,16.011,2,30.774c0,14.763,11.956,26.972,26.652,26.972h31.974   v-6.427H28.652c-10.977,0-20.25-9.103-20.25-20.278c0-11.174,9.273-20.615,20.25-20.615h25.577v6.065H29.681   c-8.165,0-14.808,7.055-14.808,15.283c0,7.978,6.366,13.993,14.808,13.993h30.945V27.549H28.522v6.437h25.707v5.355H29.681   c-4.714,0-8.406-3.528-8.406-8.032S24.967,22.939,29.681,22.939"></path>
+                </g>
+                </svg>
             </div>
         </md-toolbar>
         <md-list>
-            <md-item ng-repeat="item in menu">
-                <a>
-                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
-                        <div class="inset">
-                            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
-                        </div>
-                        <div class="inset">{{item.title}}
-                        </div>
-                    </md-item-content>
-                </a>
-            </md-item>
+            <md-list-item ng-repeat="item in menu" ng-click="null">
+                <div class="inset">
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                </div>
+                <div class="inset" >
+                    {{item.title}}
+                </div>
+            </md-list-item>
             <md-divider></md-divider>
             <md-subheader>Management</md-subheader>
-            <md-item ng-repeat="item in admin">
-                <a>
-                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
-                        <div class="inset">
-                            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
-                        </div>
-                        <div class="inset">{{item.title}}
-                        </div>
-                    </md-item-content>
-                </a>
-            </md-item>
+            <md-list-item ng-repeat="item in admin" ng-click="null" >
+                <div class="inset">
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                </div>
+                <div class="inset">
+                    {{item.title}}
+                </div>
+            </md-list-item>
         </md-list>
     </md-sidenav>
-    <div layout="column" class="relative" layout-fill role="main">
+    <div layout="column" class="relative" layout-fill role="main" >
         <ui-view></ui-view>
     </div>
 </body>

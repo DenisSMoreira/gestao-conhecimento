@@ -4,34 +4,30 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     $scope.toggleSidenav = function (menuId) {
         $mdSidenav(menuId).toggle();
     };
-    
+
     $scope.menu = [
         {
             link: '',
-            title: 'Dashboard',
-            icon: 'dashboard'
+            title: 'Perfil',
+            icon: 'account_circle'
         },
         {
             link: '',
-            title: 'Friends',
+            title: 'Time',
             icon: 'group'
-        },
-        {
-            link: '',
-            title: 'Messages',
-            icon: 'message'
         }
     ];
     $scope.admin = [
+
         {
             link: '',
-            title: 'Trash',
-            icon: 'delete'
+            title: 'Mapa',
+            icon: 'map'
         },
         {
-            link: 'showListBottomSheet($event)',
-            title: 'Settings',
-            icon: 'settings'
+            link: '',
+            title: 'Influencia',
+            icon: 'group_work'
         }
     ];
     $scope.activity = [
@@ -104,6 +100,85 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     };
 
 
+    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales", "Tele Sales", "Corporate Sales"];
+    $scope.data = [300, 500, 100, 40, 120];
+    $scope.series = ['Foo', 'Baz', 'Bar'];
+
+//    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales", "Tele Sales", "Corporate Sales"];
+//    $scope.data = [300, 500, 100, 40, 120];
+    $scope.type = 'polarArea';
+
+    $scope.toggle = function () {
+        $scope.type = $scope.type === 'polarArea' ?
+                'pie' : 'polarArea';
+    };
+
+    $scope.seriess = ['Series A', 'Series B'];
+
+    $scope.datas = [
+        [{
+                x: 40,
+                y: 20,
+                r: 20
+            }],
+        [{
+                x: 10,
+                y: 40,
+                r: 50
+            }],
+        [{
+                x: 15,
+                y: 42,
+                r: 53
+            }]
+                ,
+        [{
+                x: 15,
+                y: 22,
+                r: 53
+            }]
+                ,
+        [{
+                x: 11,
+                y: 22,
+                r: 55
+            }]
+                ,
+        [{
+                x: 32,
+                y: 12,
+                r: 44
+            }]
+    ];
+
+    $scope.labels = ["JUnit", "ElasticSearch", "Spring", "Java", "Camel", "MongoDB", "SQL"];
+
+    $scope.data = [
+        [65, 59, 90, 81, 56, 55, 40],
+        [28, 48, 40, 19, 96, 27, 100]
+    ];
+
+    $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+    $scope.data1 = [
+        [65, -59, 80, 81, -56, 55, -40],
+        [28, 48, -40, 19, 86, 27, 90]
+    ];
+    $scope.datasetOverride = [
+        {
+            label: "Bar chart",
+            borderWidth: 1,
+            type: 'bar'
+        },
+        {
+            label: "Line chart",
+            borderWidth: 3,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            type: 'line'
+        }
+    ];
+
 });
 
 function DialogController($scope, $mdDialog) {
@@ -116,7 +191,8 @@ function DialogController($scope, $mdDialog) {
     $scope.answer = function (answer) {
         $mdDialog.hide(answer);
     };
-};
+}
+;
 
 
 
