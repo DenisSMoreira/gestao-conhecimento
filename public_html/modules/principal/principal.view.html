@@ -1,14 +1,18 @@
 <md-toolbar ng-show="!showSearch">
     <div class="md-toolbar-tools">
-        <ng-md-icon icon="menu" size="48" ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu" ></ng-md-icon>
+        <ng-md-icon icon="menu" size="36" ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu" ></ng-md-icon>
         <span flex-xs="10" ></span>
         <h3>Mapa do conhecimento</h3>
     </div>
 </md-toolbar>
-<md-content class="md-padding">
+
+<md-content class="md-padding" ng-init="currentNavItem = 'page4'">
     <md-nav-bar
         md-selected-nav-item="currentNavItem"
         nav-bar-aria-label="navigation links" >
+        <md-nav-item md-nav-click="goto('page3')" name="page4">
+            GERAL
+        </md-nav-item>
         <md-nav-item md-nav-click="goto('page3')" name="page3">
             MAPA DE CONHECIMENTO
         </md-nav-item>
@@ -18,14 +22,10 @@
         <md-nav-item md-nav-click="goto('page2')" name="page2">
             TIMES
         </md-nav-item>
-        <md-nav-item md-nav-click="goto('page3')" name="page4">
-            Principal
-        </md-nav-item>
-
     </md-nav-bar>
     <div class="ext-content">
         <md-content class="md-padding" layout-xs="column" layout="row">
-            <div flex-xs flex-gt-xs="50" layout="column">
+            <div flex-xs flex-gt-xs="50" layout="column" ng-show="currentNavItem === 'page4'">
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
@@ -37,13 +37,36 @@
                         </md-card-title-media>
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="end center">
-                        <canvas id="base" class="chart-bar"
+                        <canvas id="base" class="chart-bar" 
+                                legend="true" 
                                 chart-data="data1" chart-labels="labels" chart-colors="colors"
                                 chart-dataset-override="datasetOverride" >
                         </canvas> 
                     </md-card-actions>
                 </md-card>
+            </div>
+            <div flex-xs flex-gt-xs="50" layout="column" ng-show="currentNavItem === 'page4'">
                 <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Conhecimento da Empresa</span>
+                            <span class="md-subhead">Quantidade de conhecimento na empresa por framework</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-sm card-media"></div>
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <canvas id="polar-area" class="chart chart-polar-area" 
+                                legend="true"
+                                chart-data="data" chart-labels="labels" >
+                        </canvas> 
+                    </md-card-actions>
+                </md-card>
+            </div>
+
+            <div flex-xs flex-gt-xs="50" layout="column" ng-show="currentNavItem === 'page1' || currentNavItem === 'page2'">
+                <md-card ng-show="currentNavItem === 'page1'">
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">Habilidades Pessoais</span>
@@ -59,31 +82,12 @@
                         </canvas>
                     </md-card-actions>
                 </md-card>
-            </div>
 
-
-            <div flex-xs flex-gt-xs="50" layout="column">
-                <md-card>
+                <md-card  ng-show="currentNavItem === 'page2'">
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline">Conhecimento da Empresa</span>
-                            <span class="md-subhead">Quantidade de conhecimento na empresa por framework</span>
-                        </md-card-title-text>
-                        <md-card-title-media>
-                            <div class="md-media-sm card-media"></div>
-                        </md-card-title-media>
-                    </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <canvas id="polar-area" class="chart chart-polar-area"
-                                chart-data="data" chart-labels="labels" chart-options="options">
-                        </canvas> 
-                    </md-card-actions>
-                </md-card>
-                <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">Card with image</span>
-                            <span class="md-subhead">Extra Large</span>
+                            <span class="md-headline">Level dos times</span>
+                            <span class="md-subhead">Level de conhecimento por time</span>
                         </md-card-title-text>
                         <md-card-title-media>
                             <div class="md-media-sm card-media"></div>
@@ -92,11 +96,11 @@
                     <md-card-content layout="row" layout-align="space-between">
                         <div class="md-media-xl card-media"></div>
                         <canvas id="base" class="chart-bubble" chart-data="datas"
+                                 legend="true"
                                 chart-series="labels" > 
                         </canvas> 
                     </md-card-content>
                 </md-card>
-
             </div>
         </md-content>
     </div>

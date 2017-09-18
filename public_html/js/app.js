@@ -14,24 +14,50 @@ app.config(function ($urlRouterProvider, $stateProvider, $mdThemingProvider, Cha
     ChartJsProvider.setOptions({
         global: {
             colors: ['#45b7cd', '#ff6384', '#ff8e72', '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
-            defaultFontColor: '#DCDCDC',
+//            defaultFontColor: '#DCDCDC',
             defaultFontFamily: 'Roboto',
-            defaultFontSize: 13
-        }
+            defaultFontSize: 12,
+            defaultHeight: 250
+        },
+//        responsive: false
+//        maintainAspectRatio: false
+//        barDatasetSpacing: 1,
+//        barShowStroke: true,
+//        barStrokeWidth: 1,
+//        barValueSpacing: 1
     });
+
+// Configure all doughnut charts
+//    ChartJsProvider.setOptions('Doughnut', {
+//        animateScale: true
+//    });
+
+//    $scope.chart.options = {
+//        responsive: true,
+//        maintainAspectRatio: true,
+//        barDatasetSpacing: 1,
+//        barShowStroke: true,
+//        barStrokeWidth: 2,
+//        barValueSpacing: 5
+//    };
+
+//    Chart.defaults.global.defaultHeight = 250;
 
     var customBlueMap = $mdThemingProvider.extendPalette('blue', {
         'contrastDefaultColor': 'light',
         'contrastDarkColors': ['50'],
         '50': 'ffffff'
     });
+
     $mdThemingProvider.definePalette('customBlue', customBlueMap);
+
     $mdThemingProvider.theme('default')
             .primaryPalette('customBlue', {
                 'default': '500',
                 'hue-1': '50'
             })
             .accentPalette('red');
+
     $mdThemingProvider.theme('input', 'default')
             .primaryPalette('grey');
 
