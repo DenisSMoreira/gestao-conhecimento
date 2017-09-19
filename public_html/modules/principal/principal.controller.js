@@ -275,38 +275,38 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     var DIR = 'images/face-0';
 
     var nodes = [
-        {id: 1, shape: 'circularImage', image: DIR + '1.jpg'},
-        {id: 2, shape: 'circularImage', image: DIR + '2.jpg'},
-        {id: 3, shape: 'circularImage', image: DIR + '3.jpg'},
-        {id: 4, shape: 'circularImage', image: DIR + '4.jpg', label: "Esse é o cara!"},
-        {id: 5, shape: 'circularImage', image: DIR + '5.jpg'},
-        {id: 6, shape: 'circularImage', image: DIR + '6.jpg'},
-        {id: 7, shape: 'circularImage', image: DIR + '7.jpg'},
-        {id: 8, shape: 'circularImage', image: DIR + '8.jpg'},
-        {id: 9, shape: 'circularImage', image: DIR + '9.jpg'},
-        {id: 10, shape: 'circularImage', image: DIR + '1.jpg'},
-        {id: 11, shape: 'circularImage', image: DIR + '1.jpg'},
-        {id: 12, shape: 'circularImage', image: DIR + '2.jpg'},
-        {id: 13, shape: 'circularImage', image: DIR + '3.jpg'},
-        {id: 14, shape: 'circularImage', image: DIR + '4.jpg'}
+        {id: 1, shape: 'circularImage', image: DIR + '1.jpg', value: 16, label: "Joaquina"},
+        {id: 2, shape: 'circularImage', image: DIR + '2.jpg', value: 4, label: "Rosa"},
+        {id: 3, shape: 'circularImage', image: DIR + '3.jpg', value: 4, label: "Teste 2"},
+        {id: 4, shape: 'circularImage', image: DIR + '4.jpg', label: "Denis", value: 22},
+        {id: 5, shape: 'circularImage', image: DIR + '5.jpg', value: 4, label: "Jose"},
+        {id: 6, shape: 'circularImage', image: DIR + '6.jpg', value: 3, label: "Tristesa"},
+        {id: 7, shape: 'circularImage', image: DIR + '7.jpg', value: 4, label: "Testonildo"},
+        {id: 8, shape: 'circularImage', image: DIR + '8.jpg', value: 2, label: "Joavem"},
+        {id: 9, shape: 'circularImage', image: DIR + '9.jpg', value: 3, label: "Ashudae"},
+        {id: 10, shape: 'circularImage', image: DIR + '1.jpg', value: 4, label: "Marcelo"},
+        {id: 11, shape: 'circularImage', image: DIR + '1.jpg', value: 4, label: "Alguem"},
+        {id: 12, shape: 'circularImage', image: DIR + '2.jpg', value: 4, label: "Casael"},
+        {id: 13, shape: 'circularImage', image: DIR + '3.jpg', value: 1, label: "Triste"},
+        {id: 14, shape: 'circularImage', image: DIR + '4.jpg', value: 2, label: "Feliz"}
     ];
 
 
     var edges = [
-        {from: 1, to: 2},
-        {from: 2, to: 3},
-        {from: 2, to: 4},
-        {from: 4, to: 5},
-        {from: 4, to: 10},
-        {from: 4, to: 6},
-        {from: 6, to: 7},
-        {from: 7, to: 8},
-        {from: 8, to: 9},
-        {from: 8, to: 10},
-        {from: 10, to: 11},
-        {from: 11, to: 12},
-        {from: 12, to: 13},
-        {from: 13, to: 14}
+        {from: 1, to: 2, value: 2, title: "2 indicações"},
+        {from: 2, to: 3, value: 3, title: "3 indicações"},
+        {from: 2, to: 4, value: 4, title: "4 indicações"},
+        {from: 4, to: 5, value: 5, title: "5 indicações"},
+        {from: 4, to: 10, value: 1, title: "1 indicações"},
+        {from: 4, to: 6, value: 1, title: "1 indicações"},
+        {from: 6, to: 7, value: 5, title: "5 indicações"},
+        {from: 7, to: 8, value: 1, title: "1 indicações"},
+        {from: 8, to: 9, value: 1, title: "1 indicações"},
+        {from: 8, to: 10, value: 4, title: "4 indicações"},
+        {from: 10, to: 11, value: 3, title: "3 indicações"},
+        {from: 11, to: 12, value: 1, title: "1 indicações"},
+        {from: 12, to: 13, value: 1, title: "1 indicações"},
+        {from: 13, to: 14, value: 1, title: "1 indicações"}
 //        {from: 9, to: 16}
     ];
     // provide the data in the vis format
@@ -316,18 +316,22 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     };
 
     $scope.options5 = {
-        align: "center",
         autoResize: true,
         height: '100%',
         width: '100%',
         clickToUse: false,
         nodes: {
-            borderWidth: 4,
-            size: 30,
+            shape: 'dot',
+            scaling: {
+                label: {
+                    min: 1,
+                    max: 30
+                }
+            },
             color: {
                 border: '#3b5eb2'
             },
-            font: {color: '#3b5eb2'}
+            font: {color: '#000000'}
         },
         edges: {
             color: '#3b5eb2'
