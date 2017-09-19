@@ -1,1 +1,1 @@
-angular.module('principal', ['chart.js']);
+angular.module('principal', ['chart.js', 'ngVis']);

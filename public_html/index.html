@@ -7,20 +7,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <title>Logic Mapa Conhecimento</title>
 
-
-
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-resource.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+        <script src="bower_components/vis/dist/vis.js"></script>
+        <!--<link rel="stylesheet" href="bower_components/vis/dist/vis.css">-->
+
+        <script src="bower_components/angular-visjs/angular-vis.js"></script>
+
+        <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-aria.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-messages.js"></script>
         <script src="https://cdn.jsdelivr.net/angular-material-icons/0.7.1/angular-material-icons.min.js"></script> 
         <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.js"></script>
 
-        <script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
 
-        <!--<script src="bower_components/chart.js/Chart.min.js"></script>-->
         <script src="bower_components/chart.js/dist/Chart.js"></script>
         <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 
@@ -51,6 +55,18 @@
                         }
             
             */
+
+            #mynetwork {
+                width: 100%;
+                display: block;
+                text-align: center;
+                /*display: flex;*/
+                align-items: center;
+                height: 700px;
+                /*border: 1px solid lightgray;*/
+                /*background-color:#333333;*/
+            }
+
             /*$gray: #eee;*/
             md-content.md-default-theme {
                 background-color: #eee;
