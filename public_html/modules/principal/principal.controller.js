@@ -1,3 +1,5 @@
+/* global container, vis */
+
 'use strict';
 angular.module('principal').controller('PrincipalController', function ($scope, $state, $mdSidenav, $mdBottomSheet, $mdDialog, VisDataSet) {
 
@@ -7,12 +9,12 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
 
     $scope.menu = [
         {
-            link: '',
+            link: 'page.profile({reload: true, notify: true})',
             title: 'Perfil',
             icon: 'account_circle'
         },
         {
-            link: '',
+            link: 'page.group',
             title: 'Time',
             icon: 'group'
         }
@@ -20,14 +22,15 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     $scope.admin = [
 
         {
-            link: '',
-            title: 'Mapa',
-            icon: 'map'
-        },
+            link: 'page.principal',
+            title: 'Mapa de Influencia',
+            icon: 'group_work'
+        }
+        ,
         {
             link: '',
-            title: 'Influencia',
-            icon: 'group_work'
+            title: 'Configuração',
+            icon: 'rate_review'
         }
     ];
     $scope.activity = [
@@ -91,7 +94,7 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
         {name: 'Share', icon: 'share'},
         {name: 'Upload', icon: 'upload'},
         {name: 'Copy', icon: 'copy'},
-        {name: 'Print this page', icon: 'print'},
+        {name: 'Print this page', icon: 'print'}
     ];
 
     $scope.listItemClick = function ($index) {
@@ -166,12 +169,12 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     ];
     $scope.datasetOverride = [
         {
-            label: "Bar chart",
+            label: "Conquistado",
             borderWidth: 1,
             type: 'bar'
         },
         {
-            label: "Line chart",
+            label: "Planejado",
             borderWidth: 3,
             hoverBackgroundColor: "rgba(255,99,132,0.4)",
             hoverBorderColor: "rgba(255,99,132,1)",
@@ -236,13 +239,14 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
         groupOrder: orderedContent,
         editable: true
     });
+
     $scope.defaults = {
-        orientation: ['top', 'bottom'],
+//        orientation: ['top', 'bottom'],
         autoResize: [true, false],
         showCurrentTime: [true, false],
         showMajorLabels: [true, false],
         showMinorLabels: [true, false],
-        align: ['left', 'center', 'right'],
+//        align: ['left', 'center', 'right'],
         stack: [true, false],
 
         moveable: [true, false],
@@ -275,20 +279,20 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     var DIR = 'images/face-0';
 
     var nodes = [
-        {id: 1, shape: 'circularImage', image: DIR + '1.jpg', value: 16, label: "Joaquina"},
-        {id: 2, shape: 'circularImage', image: DIR + '2.jpg', value: 4, label: "Rosa"},
-        {id: 3, shape: 'circularImage', image: DIR + '3.jpg', value: 4, label: "Teste 2"},
-        {id: 4, shape: 'circularImage', image: DIR + '4.jpg', label: "Denis", value: 22},
-        {id: 5, shape: 'circularImage', image: DIR + '5.jpg', value: 4, label: "Jose"},
-        {id: 6, shape: 'circularImage', image: DIR + '6.jpg', value: 3, label: "Tristesa"},
-        {id: 7, shape: 'circularImage', image: DIR + '7.jpg', value: 4, label: "Testonildo"},
-        {id: 8, shape: 'circularImage', image: DIR + '8.jpg', value: 2, label: "Joavem"},
-        {id: 9, shape: 'circularImage', image: DIR + '9.jpg', value: 3, label: "Ashudae"},
-        {id: 10, shape: 'circularImage', image: DIR + '1.jpg', value: 4, label: "Marcelo"},
-        {id: 11, shape: 'circularImage', image: DIR + '1.jpg', value: 4, label: "Alguem"},
-        {id: 12, shape: 'circularImage', image: DIR + '2.jpg', value: 4, label: "Casael"},
-        {id: 13, shape: 'circularImage', image: DIR + '3.jpg', value: 1, label: "Triste"},
-        {id: 14, shape: 'circularImage', image: DIR + '4.jpg', value: 2, label: "Feliz"}
+        {id: 1, shape: 'circularImage', image: DIR + '1.jpg', value: 16, label: "Joaquina", group: 'icons'},
+        {id: 2, shape: 'circularImage', image: DIR + '2.jpg', value: 4, label: "Rosa", group: 'icons'},
+        {id: 3, shape: 'circularImage', image: DIR + '3.jpg', value: 4, label: "Teste 2", group: 'icons'},
+        {id: 4, shape: 'circularImage', image: DIR + '4.jpg', label: "Denis", value: 22, group: 'diamonds'},
+        {id: 5, shape: 'circularImage', image: DIR + '5.jpg', value: 4, label: "Jose", group: 'diamonds'},
+        {id: 6, shape: 'circularImage', image: DIR + '6.jpg', value: 3, label: "Tristesa", group: 'icons'},
+        {id: 7, shape: 'circularImage', image: DIR + '7.jpg', value: 4, label: "Testonildo", group: 'icons'},
+        {id: 8, shape: 'circularImage', image: DIR + '8.jpg', value: 2, label: "Joavem", group: 'icons'},
+        {id: 9, shape: 'circularImage', image: DIR + '9.jpg', value: 3, label: "Ashudae", group: 'icons'},
+        {id: 10, shape: 'circularImage', image: DIR + '1.jpg', value: 4, label: "Marcelo", group: 'diamonds'},
+        {id: 11, shape: 'circularImage', image: DIR + '1.jpg', value: 4, label: "Alguem", group: 'icons'},
+        {id: 12, shape: 'circularImage', image: DIR + '2.jpg', value: 4, label: "Casael", group: 'diamonds'},
+        {id: 13, shape: 'circularImage', image: DIR + '3.jpg', value: 1, label: "Triste", group: 'icons'},
+        {id: 14, shape: 'circularImage', image: DIR + '4.jpg', value: 2, label: "Feliz", group: 'icons'}
     ];
 
 
@@ -307,8 +311,8 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
         {from: 11, to: 12, value: 1, title: "1 indicações"},
         {from: 12, to: 13, value: 1, title: "1 indicações"},
         {from: 13, to: 14, value: 1, title: "1 indicações"}
-//        {from: 9, to: 16}
     ];
+
     // provide the data in the vis format
     $scope.data5 = {
         nodes: nodes,
@@ -325,7 +329,7 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
             scaling: {
                 label: {
                     min: 1,
-                    max: 30
+                    max: 25
                 }
             },
             color: {
@@ -338,9 +342,42 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
         }
     };
 
+    var offsetx, offsety, scale, positionx, positiony, duration, easingFunction, doButton, focusButton, showButton;
 
-//    // initialize your network!
-//    var network = new vis.Network(container, data, options);
+    function updateValues() {
+        offsetx = parseInt(0);
+        offsety = parseInt(0);
+        duration = parseInt(1000);
+        scale = parseFloat(3.0);
+        positionx = parseInt(300);
+        positiony = parseInt(300);
+        easingFunction = 'easeInOutQuad';
+    }
+
+    var networks;
+    var amountOfNodes = nodes.length;
+    $scope.networkEvents =
+            {
+                onload: function (network) {
+                    console.log(network);
+                    updateValues();
+                    networks = network;
+                },
+                click: function (clicked) {
+                    var nodeId = Math.floor(Math.random() * amountOfNodes);
+                    var opti = {
+                        scale: scale,
+                        offset: {x: offsetx, y: offsety},
+                        animation: {
+                            duration: duration,
+                            easingFunction: easingFunction
+                        }
+                    };
+                    networks.focus(nodeId, opti);
+                    console.log(clicked);
+                    console.log("id: " + clicked.nodes[0] + " was clicked");
+                }
+            };
 
 });
 

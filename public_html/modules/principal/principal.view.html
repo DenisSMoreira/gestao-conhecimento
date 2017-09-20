@@ -2,7 +2,7 @@
     <div class="md-toolbar-tools">
         <ng-md-icon icon="menu" size="36" ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu" ></ng-md-icon>
         <span flex-xs="10" ></span>
-        <h3>Mapa do conhecimento</h3>
+        <h3>Mapa de influencia</h3>
     </div>
 </md-toolbar>
 
@@ -16,9 +16,6 @@
         <md-nav-item md-nav-click="goto('page3')" name="page4">
             GERAL
         </md-nav-item>
-        <md-nav-item md-nav-click="goto('page1')" name="page1">
-            SEU PERFIL
-        </md-nav-item>
         <md-nav-item md-nav-click="goto('page2')" name="page2">
             TIMES
         </md-nav-item>
@@ -30,38 +27,55 @@
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">Usabilidade do conhecimento</span>
-                            <span class="md-subhead">Grafico de evolução por tecnologia</span>
+                            <span class="md-subhead">Grafico de evolução da maturidade das tecnologias (Executado vs Esperado)</span>
                         </md-card-title-text>
                         <md-card-title-media>
                             <div class="md-media-sm card-media"></div>
                         </md-card-title-media>
                     </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <canvas id="base" class="chart-bar" 
-                                legend="true" 
-                                chart-data="data1" chart-labels="labels" chart-colors="colors"
-                                chart-dataset-override="datasetOverride" >
-                        </canvas> 
-                    </md-card-actions>
+                    <md-card-content layout="row" layout-align="space-between" >
+                        <div style="width: 100%">
+                            <label></label>
+                            <md-card-title-media>
+                                <div class="md-media-sm card-media">Selecione o período de consulta (minimo 6 meses )</div>
+                            </md-card-title-media>
+                            <md-input-container>
+                                <label>Inicio período</label>
+                                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+                            </md-input-container> 
+                            <md-input-container>
+                                <label>Fim período</label>
+                                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+                            </md-input-container> 
+                            <canvas id="base" class="chart-bar" 
+                                    legend="true" 
+                                    chart-data="data1" chart-labels="labels" chart-colors="colors"
+                                    chart-dataset-override="datasetOverride" >
+                            </canvas> 
+                        </div>
+                    </md-card-content>
                 </md-card>
             </div>
             <div flex-xs flex-gt-xs="50" layout="column" ng-show="currentNavItem === 'page4'">
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline">Conhecimento da Empresa</span>
-                            <span class="md-subhead">Quantidade de conhecimento na empresa por framework</span>
+                            <span class="md-headline">Maturidade de conhecimento</span>
+                            <span class="md-subhead">Maturidade de conhecimento dos times</span>
                         </md-card-title-text>
                         <md-card-title-media>
                             <div class="md-media-sm card-media"></div>
                         </md-card-title-media>
                     </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
+                    <md-card-content layout="row" layout-align="space-between" >
                         <canvas id="polar-area" class="chart chart-polar-area" 
                                 legend="true"
                                 chart-data="data" chart-labels="labels" >
                         </canvas> 
-                    </md-card-actions>
+                        <!--<div id="chart">-->
+                        <!--<canvas id="myChart" width="400" height="400"></canvas>-->
+                        <!--</div>-->
+                    </md-card-content>
                 </md-card>
             </div>
 
@@ -78,7 +92,7 @@
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="end center">
                         <div id="mynetwork" >
-                            <vis-network data="data5" options="options5" ></vis-network> 
+                            <vis-network data="data5" options="options5" events="networkEvents" ></vis-network> 
                         </div>
                     </md-card-actions>
                 </md-card>
@@ -88,90 +102,56 @@
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline">Conhecimento da Empresa</span>
-                            <span class="md-subhead">Quantidade de conhecimento na empresa por framework</span>
+                            <span class="md-headline">Filtros</span>
+                            <span class="md-subhead">Filtros do mapa de influencia</span>
                         </md-card-title-text>
                         <md-card-title-media>
                             <div class="md-media-sm card-media"></div>
                         </md-card-title-media>
                     </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <md-switch ng-model="data.cb1" aria-label="Switch 1">
-                            Switch 1
-                        </md-switch>
+                    <md-card-content layout="row" layout-align="space-between" >
+                        <div style="width: 100%">
+                            <md-input-container class="md-block flex-gt-sm" >
+                                <label>Equipe</label>
+                                <md-select ng-model="user.state">
+                                    <md-option ng-repeat="state in labels" value="{{state}}">
+                                        {{state}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-autocomplete
+                                md-selected-item="selectedItem"
+                                md-search-text-change="searchTextChange(searchText)"
 
-                        <md-switch ng-model="data.cb2" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
-                            Switch 2 
-                        </md-switch>
+                                md-search-text="searchText"
 
-                    </md-card-actions>
+                                md-items="item in querySearch(searchText)"
+                                md-item-text="item.name"
+
+                                placeholder="Consultar colaborador"
+                                md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                    <span class="item-title">
+                                        <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                        <span> {{item.name}} </span>
+                                    </span>
+                                    <span class="item-metadata">
+                                        <span>
+                                            <strong>{{item.watchers}}</strong> watchers
+                                        </span>
+                                        <span>
+                                            <strong>{{item.forks}}</strong> forks
+                                        </span>
+                                    </span>
+                                </md-item-template>
+                            </md-autocomplete>
+                        </div>
+                    </md-card-content>
                 </md-card>
             </div>
 
-            <!--            <div ng-show="currentNavItem === 'page3'">
-                            <div id="mynetwork" >
-                                <vis-network data="data5" options="options5" ></vis-network> 
-                            </div>
-                        </div>-->
 
-            <!--            <md-content class="md-padding">
-                            <h1 class="md-display-2">Tab One</h1>
-                            <div style=" display: block;
-                                 width: 490px;
-                                 height: 245px;
-                                 max-width: 100%;">
-                                <vis-network data="data5" options="options5" ></vis-network> 
-                            </div>
-                        </md-content>-->
-
-            <!--            <div flex-xs flex-gt-xs="33" layout="column" ng-show="currentNavItem === 'page4'">
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-headline">Level dos times</span>
-                                        <span class="md-subhead">Level de conhecimento por time</span>
-                                    </md-card-title-text>
-                                    <md-card-title-media>
-                                        <div class="md-media-sm card-media"></div>
-                                    </md-card-title-media>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="space-between">
-                                    <div class="md-media-xl card-media"></div>
-                                    <div style=" display: block;
-                                         width: 490px;
-                                         height: 245px;
-                                         max-width: 100%;">
-                                        <vis-network data="data5" options="options5" ></vis-network> 
-                                    </div>
-                                </md-card-content>
-                            </md-card>
-                        </div>-->
-
-
-
-            <!--            <md-content class="md-padding" layout-xs="column" layout="row"  ng-show="currentNavItem === 'page3'">
-            
-                        </md-content>-->
-
-
-            <div flex-xs flex-gt-xs="50" layout="column" ng-show="currentNavItem === 'page1' || currentNavItem === 'page2'">
-                <md-card ng-show="currentNavItem === 'page1'">
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">Habilidades Pessoais</span>
-                            <span class="md-subhead">Suas habilidades</span>
-                        </md-card-title-text>
-                        <md-card-title-media>
-                            <div class="md-media-sm card-media"></div>
-                        </md-card-title-media>
-                    </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <canvas id="radar" class="chart chart-radar" legend="true"
-                                chart-data="data" chart-options="options" chart-labels="labels">
-                        </canvas>
-                    </md-card-actions>
-                </md-card>
-
+            <div flex-xs flex-gt-xs="50" layout="column" ng-show="currentNavItem === 'page2'">
                 <md-card  ng-show="currentNavItem === 'page2'">
                     <md-card-title>
                         <md-card-title-text>
@@ -189,9 +169,6 @@
                                 chart-series="labels" > 
                         </canvas> 
                     </md-card-content>
-                </md-card>
-
-
             </div>
         </md-content>
     </div>

@@ -55,7 +55,21 @@
                         }
             
             */
-
+            .chart-legend-icon,
+            .bar-legend-icon,
+            .line-legend-icon,
+            .pie-legend-icon,
+            .radar-legend-icon,
+            .polararea-legend-icon,
+            .doughnut-legend-icon {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 5px;
+            }
             #mynetwork {
                 width: 100%;
                 display: block;
@@ -125,9 +139,10 @@
             </div>
         </md-toolbar>
         <md-list>
-            <md-list-item ng-repeat="item in menu" ng-click="null">
+            <md-list-item ng-repeat="item in menu" ng-click="null" ui-sref="{{item.link}}" >
                 <div class="inset">
-                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                    <ng-md-icon icon="{{item.icon}}">
+                    </ng-md-icon>
                 </div>
                 <div class="inset" >
                     {{item.title}}
@@ -135,7 +150,7 @@
             </md-list-item>
             <md-divider></md-divider>
             <md-subheader>Management</md-subheader>
-            <md-list-item ng-repeat="item in admin" ng-click="null" >
+            <md-list-item ng-repeat="item in admin" ng-click="null" ui-sref="{{item.link}}">
                 <div class="inset">
                     <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
                 </div>
