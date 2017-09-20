@@ -17,16 +17,17 @@
             <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/index.html</file>
             <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.module.js</file>
         </group>
+        <group>
+            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/principal/principal.view.html</file>
+            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/principal/principal.controller.js</file>
+        </group>
         <group name="monitor">
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/js/app.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/js/TodoControllerNext.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.controller.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.module.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/profile/profile.controller.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/bower_components/ng-sortable/dist/ng-sortable.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.view.html</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/js/Sortable.js</file>
+            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/principal/principal.controller.js</file>
+            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/index_1.html</file>
             <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/index.html</file>
+            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.view.html</file>
+            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/profile/profile.view.html</file>
+            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/principal/principal.view.html</file>
         </group>
     </open-files>
 </project-private>

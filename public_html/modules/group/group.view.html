@@ -1,29 +1,41 @@
 <!doctype html>
-<link href="css/group.css" rel="stylesheet" type="text/css" />
+<md-toolbar ng-show="!showSearch">
+    <div class="md-toolbar-tools">
+        <ng-md-icon icon="menu" size="36" ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu" ></ng-md-icon>
+        <span flex-xs="10" ></span>
+        <h3>Times</h3>
+    </div>
+</md-toolbar>
 
-<div class="android-content mdl-layout__content" ng-controller="GroupController">
-    <div class="row">
-        <div class="layer tile" >
-            <div class="tile__name" >Usuários</div>
-            <div class="tile__list" as-sortable="sortableCloneOptions" data-ng-model="userss"  style="border-right: 1px solid #3b5eb2; padding-right: 10px;">
-                <div ng-repeat="team in userss" as-sortable-item>
-                    <div as-sortable-item-handle>
-                        <img src= {{team.img}} />
-                        {{team.name}}
+<md-content class="md-padding">
+    <div class="android-content mdl-layout__content" ng-controller="GroupController">
+        <div class="row">
+            <div class="layer tile" >
+                <div class="tile__name" >Usuários</div>
+                <div class="tile__list" as-sortable="sortableCloneOptions" data-ng-model="userss"  style="border-right: 1px solid #3b5eb2; padding-right: 10px;">
+                    <div ng-repeat="team in userss" as-sortable-item>
+                        <div as-sortable-item-handle>
+                            <img src= {{team.img}} />
+                            {{team.name}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="layer tile" ng-repeat="team in teams" >
-            <div class="tile__name" >{{team.name}}</div>
-            <div as-sortable="sortableOptions" data-ng-model="team.users">
-                <div ng-repeat="user in team.users" as-sortable-item>
-                    <div class="tile__list" as-sortable-item-handle>
-                        <img src= {{user.img}} />
-                        {{user.name}}
+            <div class="layer tile" ng-repeat="team in teams" >
+                <div class="tile__name" >{{team.name}}</div>
+                <div as-sortable="sortableOptions" data-ng-model="team.users">
+                    <div ng-repeat="user in team.users" as-sortable-item>
+                        <div class="tile__list" as-sortable-item-handle>
+                            <img src= {{user.img}} />
+                            {{user.name}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+</md-content>
+
+<link href="css/group.css" rel="stylesheet" type="text/css" />
+
