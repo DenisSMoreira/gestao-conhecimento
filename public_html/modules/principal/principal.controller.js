@@ -104,11 +104,8 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
 
 
     $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales", "Tele Sales", "Corporate Sales"];
-    $scope.data = [300, 500, 100, 40, 120];
     $scope.series = ['Foo', 'Baz', 'Bar'];
 
-//    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales", "Tele Sales", "Corporate Sales"];
-//    $scope.data = [300, 500, 100, 40, 120];
     $scope.type = 'polarArea';
 
     $scope.toggle = function () {
@@ -157,24 +154,24 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
     $scope.labels = ["JUnit", "ElasticSearch", "Spring", "Java", "Camel", "MongoDB", "SQL"];
 
     $scope.data = [
-        [65, 59, 90, 81, 56, 55, 40],
-        [28, 48, 40, 19, 96, 27, 100]
+        [81, 81, 81, 85, 81, 81, 100],
+        [48, 48, 81, 99, 66, 47, 50]
     ];
 
     $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
 
     $scope.data1 = [
-        [65, -59, 80, 81, -56, 55, -40],
-        [28, 48, -40, 19, 86, 27, 90]
+        [65, 9, 80, 81, 56, 5, 40],
+        [28, 48, 40, 19, 86, 27, 90]
     ];
     $scope.datasetOverride = [
         {
-            label: "Conquistado",
+            label: "Planejado",
             borderWidth: 1,
             type: 'bar'
         },
         {
-            label: "Planejado",
+            label: "Conquistado",
             borderWidth: 3,
             hoverBackgroundColor: "rgba(255,99,132,0.4)",
             hoverBorderColor: "rgba(255,99,132,1)",
@@ -300,7 +297,7 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
         {from: 1, to: 2, value: 2, title: "2 indicações"},
         {from: 2, to: 3, value: 3, title: "3 indicações"},
         {from: 2, to: 4, value: 4, title: "4 indicações"},
-        {from: 4, to: 5, value: 5, title: "5 indicações"},
+        {from: 4, to: 5, value: 2, title: "5 indicações"},
         {from: 4, to: 10, value: 1, title: "1 indicações"},
         {from: 4, to: 6, value: 1, title: "1 indicações"},
         {from: 6, to: 7, value: 5, title: "5 indicações"},
@@ -378,7 +375,44 @@ angular.module('principal').controller('PrincipalController', function ($scope, 
                     console.log("id: " + clicked.nodes[0] + " was clicked");
                 }
             };
-
+    var imagePath = 'images/face-01.jpg';
+    $scope.todos = [
+        {
+            face: imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+        },
+        {
+            face: imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+        },
+        {
+            face: imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+        },
+        {
+            face: imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+        },
+        {
+            face: imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+        },
+    ];
 });
 
 function DialogController($scope, $mdDialog) {
