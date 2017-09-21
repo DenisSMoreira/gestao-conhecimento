@@ -7,17 +7,12 @@
 </md-toolbar>
 
 <md-content class="md-padding" ng-init="currentNavItem = 'page3'">
-    <md-nav-bar
-        md-selected-nav-item="currentNavItem"
-        nav-bar-aria-label="navigation links" >
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" >
         <md-nav-item md-nav-click="goto('page3')" name="page3">
             MAPA DE INFLUENCIA
         </md-nav-item>
         <md-nav-item md-nav-click="goto('page3')" name="page4">
             GERAL
-        </md-nav-item>
-        <md-nav-item md-nav-click="goto('page2')" name="page2">
-            TIMES
         </md-nav-item>
     </md-nav-bar>
     <div class="ext-content">
@@ -67,7 +62,7 @@
                             <div class="md-media-sm card-media"></div>
                         </md-card-title-media>
                     </md-card-title>
-                    <md-card-content layout="row" layout-align="space-between" >
+                    <md-card-content layout="row" layout-align="space-between" style="height: 495px">
                         <canvas id="polar-area" class="chart chart-radar" 
                                 chart-data="data" chart-labels="labels" >
                         </canvas> 

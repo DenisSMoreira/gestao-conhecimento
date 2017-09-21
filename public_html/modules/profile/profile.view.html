@@ -11,26 +11,92 @@
 <md-content class="md-padding">
     <div layout="row">
         <div flex>
-            <div class="demo-swipe" >
-                <!--<span class="no-select">Swipe me to the left</span>-->
-                <div style="border-radius: 50%;
-                     border-width: 1px;
-                     border-style: solid;
-                     width: 232px;
-                     height: 232px;
-                     overflow: hidden;
-                     display: inline-block;">
-                    <img src="images/xfoto.webp" alt="Usuario" >
-                </div>
-            </div>
-            <!--<md-divider></md-divider>-->
-            <div class="demo-swipe">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media" layout >
+                            <!--<md-icon md-svg-icon="person"></md-icon>-->
+                            <!--<span class="no-select">Swipe me to the left</span>-->
+                            <div style="border-radius: 50%;
+                                 width: 64px;
+                                 height: 64px;
+                                 overflow: hidden;">
+                                <img src="images/xfoto.webp" alt="Usuario" >
+                            </div>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-text>
+                        <span class="md-headline title">JONH DOE</span>
+                        <span class="md-subhead description">Web Designer &amp; Mobile Application Developer</span>
+                        <!--<h1 class="title">JONH DOE</h1>-->
+                        <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                            <div>
+                                <md-input-container>
+                                    <label>Rank</label>
+                                    <input ng-model="user.title" ng-value="user.title='NIVEL 2'">
+                                </md-input-container>
 
-            </div>
+                                <md-input-container>
+                                    <label>Email</label>
+                                    <input ng-model="user.email" type="email">
+                                </md-input-container>
+
+                                <md-input-container layout-padding>
+                                    <ng-md-icon icon="linkedin-box" size="32" style="fill: #3b5eb2" ></ng-md-icon>
+                                    <ng-md-icon icon="github-circle" size="32" ></ng-md-icon>
+                                    <ng-md-icon icon="hangouts" size="32" style="fill: #149f5c"></ng-md-icon>
+                                </md-input-container>
+                            </div>
+                        </md-content>
+
+                        <md-content layout-padding>
+                            <form name="userForm">
+
+                                <div layout-gt-xs="row">
+                                    <md-input-container class="md-block" flex-gt-xs>
+                                        <label>Empresa</label>
+                                        <input ng-model="user.company" disabled ng-value="user.company='Logic solution'">
+                                    </md-input-container>
+
+                                    <md-input-container>
+                                        <label>Admissão</label>
+                                        <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+                                    </md-input-container>
+                                </div>
+
+                                <div layout-gt-sm="row">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Apelido</label>
+                                        <input ng-model="user.firstName">
+                                    </md-input-container>
+
+                                   <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Telefone</label>
+                                        <input ng-model="user.phone" >
+                                    </md-input-container>
+
+<!--                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Time</label>
+                                        <md-select name="type" ng-model="project.type" required>
+                                            <md-option value="app">Application</md-option>
+                                            <md-option value="web">Website</md-option>
+                                        </md-select>
+                                    </md-input-container>-->
+                                </div>
+
+                                <md-input-container class="md-block">
+                                    <label>Resumo</label>
+                                    <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                </md-input-container>
+                            </form>
+                        </md-content>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
         </div>
         <md-divider></md-divider>
         <div flex layout="row">
-            <div flex layout="row" layout-align="center center">
+            <div class="ext-content">
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
@@ -39,17 +105,14 @@
                         </md-card-title-text>
                         <md-card-title-media>
                             <div class="md-media-sm card-media"></div>
-                        </md-card-title-media>
+                        </md-card-title-media> 
                     </md-card-title>
                     <md-card-actions layout="row" layout-align="end center">
-                        <canvas id="radar" class="chart chart-radar" legend="true"
+                        <canvas id="radar" class="chart chart-radar" legend="true"  style="height: 310px"
                                 chart-data="data" chart-options="options" chart-labels="labels">
                         </canvas>
                     </md-card-actions>
-                </md-card>
-            </div>
-            <!--<md-divider></md-divider>-->
-            <div flex layout="row" layout-align="center center">
+                </md-card> 
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
@@ -68,278 +131,7 @@
                 </md-card>
             </div>
         </div>
-    </div>
 
-    <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-        <div>
-            <md-input-container>
-                <label>Rank</label>
-                <input ng-model="user.title" ng-value="user.title='NIVEL 2'">
-            </md-input-container>
-
-            <md-input-container>
-                <label>Email</label>
-                <input ng-model="user.email" type="email">
-            </md-input-container>
-        </div>
-    </md-content>
-
-    <md-content layout-padding>
-        <div>
-            <form name="userForm">
-
-                <div layout-gt-xs="row">
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Empresa</label>
-                        <input ng-model="user.company" disabled ng-value="user.company='Logic solution'">
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>Admissão</label>
-                        <md-datepicker ng-model="user.submissionDate"></md-datepicker>
-                    </md-input-container>
-                </div>
-
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Nome</label>
-                        <input ng-model="user.firstName">
-                    </md-input-container>
-
-                    <!--          <md-input-container class="md-block" flex-gt-sm>
-                                <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
-                                <input ng-model="theMax">
-                              </md-input-container>-->
-                </div>
-
-                <!--        <md-input-container class="md-block">
-                          <label>Endereço</label>
-                          <input ng-model="user.address">
-                        </md-input-container>-->
-
-                <!--        <div layout-gt-sm="row">
-                          <md-input-container class="md-block" flex-gt-sm>
-                            <label>City</label>
-                            <input ng-model="user.city">
-                          </md-input-container>
-                
-                          <md-input-container class="md-block" flex-gt-sm>
-                            <label>State</label>
-                            <md-select ng-model="user.state">
-                              <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                                {{state.abbrev}}
-                              </md-option>
-                            </md-select>
-                          </md-input-container>
-                
-                          <md-input-container class="md-block" flex-gt-sm>
-                            <label>Postal Code</label>
-                            <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
-                                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-                
-                            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-                              <div ng-message="required" class="my-message">You must supply a postal code.</div>
-                              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                                code.
-                              </div>
-                              <div ng-message="md-maxlength" class="my-message">
-                                Don't use the long version silly...we don't need to be that specific...
-                              </div>
-                            </div>
-                          </md-input-container>
-                        </div>-->
-
-                <md-input-container class="md-block">
-                    <label>Resumo</label>
-                    <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                </md-input-container>
-
-            </form>
-        </div>
-    </md-content>
-
-
-
-
-
-
-    <div class="android-content mdl-layout__content" style="margin-top: -10px;">
-
-        <div class="android-screen-section mdl-typography--text-center" >
-            <div class="mdl-grid demo-content">
-                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                    <div class="demo-charts mdl-cell mdl-cell--3-col">
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col" style="text-align: right;">
-
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--7-col" style="text-align: left;">
-                        <h1 class="title">JONH DOE</h1>
-                        <h4 class="sub-title" style="margin-top: -30px;">Web Designer &amp; Mobile Application Developer</h4>
-                        <!-- start container -->
-                        <div class="container">
-                            <!-- start row -->
-                            <div class="row">
-                                <!-- start email -->
-                                <div class="col-xs-12 col-sm-6 col-lg-3">
-                                    <a href="#" class="hover-animate">
-                                        jonh@yourdomain.com
-                                    </a>
-                                </div>
-                                <!-- end phone number -->
-                                <!-- end email -->
-                                <!-- start address -->
-                                <div class="col-xs-12 col-sm-6 col-lg-3">
-                                    <a href="#" class="hover-animate">
-                                        148 Inocoop, Rio claro - SP
-                                    </a>
-                                </div>
-                                <!-- start phone number -->
-                                <div class="col-xs-12 col-sm-6 col-lg-3">
-                                    <a href="#" class="hover-animate">
-                                        +55 019-3456-7890
-                                    </a>
-                                </div>
-                                <!-- end Copyright -->
-                            </div>
-                            <!-- end row -->
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid"  style="margin-top: -8px !important;">
-                    <div class="demo-charts mdl-cell mdl-cell--2-col"></div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <span class="foto">
-                            <img src="images/profile.gif" alt="user" >
-                        </span>
-                        <br>
-                        <a href="" style="color: #767777;">   
-                            <h5>Perfil</h5>
-                        </a>
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <span class="foto">
-                            <img src="images/portfolio.gif" alt="Ukieweb" >
-                        </span>
-                        <br>
-                        <a href="" style="color: #767777;">   
-                            <h5>Portfolio</h5>
-                        </a>
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <span class="foto">
-                            <img src="images/blog.gif" alt="Ukieweb"  >
-                        </span>
-                        <br>
-                        <a href="" style="color: #767777;">   
-                            <h5>Habilidades</h5>
-                        </a>
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <span class="foto">
-                            <img src="images/resume.gif" alt="Ukieweb" >
-
-                        </span>
-                        <br>
-                        <a href="" style="color: #767777;">   
-                            <h5>Resumo</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid"  style="margin-top: -8px !important;">
-                    <div class="demo-charts mdl-cell mdl-cell--2-col"></div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="phone" value="550193456890">
-                            <label class="mdl-textfield__label" for="phone">Telefone</label>
-                            <span class="mdl-textfield__error">Apenas números</span>
-                        </div>
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="JONH DOE">
-                            <label class="mdl-textfield__label" for="sample1">Nome...</label>
-                        </div>
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" id="sample1" value="148 Inocoop, Rio claro - SP">
-                            <label class="mdl-textfield__label" for="sample1">Endereço...</label>
-                        </div>
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <a href="">   
-                            <img src="images/github-circle48.png" >
-                            Github
-                        </a>
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <!-- Deletable Contact Chip -->
-                        <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
-                            <img class="mdl-chip__contact" src="images/user.jpg"></img>
-                            <span class="mdl-chip__text">Java</span>
-                            <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-                        </span>
-                        <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
-                            <img class="mdl-chip__contact" src="images/user.jpg"></img>
-                            <span class="mdl-chip__text">Spring</span>
-                            <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-                        </span>
-                        <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
-                            <img class="mdl-chip__contact" src="images/user.jpg"></img>
-                            <span class="mdl-chip__text">Camel</span>
-                            <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-                        </span>
-                        <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
-                            <img class="mdl-chip__contact" src="images/user.jpg"></img>
-                            <span class="mdl-chip__text">MongoDB</span>
-                            <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-                        </span>
-                        <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
-                            <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">E</span>
-                            <span class="mdl-chip__text">EJB</span>
-                            <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-                        </span>
-
-                    </div>
-                    <div class="demo-charts mdl-cell mdl-cell--2-col">
-                        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th class="mdl-data-table__cell--non-numeric">Habilidades</th>
-                                    <th>Pontos</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="mdl-data-table__cell--non-numeric">Java</td>
-                                    <td>25</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="mdl-data-table__cell--non-numeric">Spring</td>
-                                    <td>50</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="mdl-data-table__cell--non-numeric">MongoDB</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="mdl-data-table__cell--non-numeric">EJB</td>
-                                    <td>25</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="mdl-data-table__cell--non-numeric">Camel</td>
-                                    <td>50</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </div>
 
 </md-content>
