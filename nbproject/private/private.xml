@@ -5,7 +5,7 @@
             <url>public_html/modules/profile/profile.controller.js</url>
             <bookmark id="1">
                 <name/>
-                <line>5</line>
+                <line>18</line>
                 <key/>
             </bookmark>
         </file>
@@ -22,11 +22,6 @@
             <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/principal/principal.controller.js</file>
         </group>
         <group name="monitor">
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/principal/principal.controller.js</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/index_1.html</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/index.html</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/group/group.view.html</file>
-            <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/profile/profile.view.html</file>
             <file>file:/home/denis/NetBeansProjects/gestao-conhecimento/public_html/modules/principal/principal.view.html</file>
         </group>
     </open-files>
